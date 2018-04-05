@@ -22,23 +22,16 @@ class WordNode:
     def printWord(self):
         print(self.word)
 
-     
+words=[Python,Is,an,easy,to,learn, powerful, programming, language, It, has, efficient, high-level, data, structures, And, a, simple, but, effective, approach, to, Object-oriented, programming, Python’s, elegant, syntax, And, dynamic, typing, together, With, its, interpreted, nature, make, it, an, ideal, language, For, scripting, And, rapid, application, development, In, many, areas, on, most, platforms]    
 word=[]      
 word.append(WordNode("I")) # this worked before random pick why???something to do with importing random? 
-word.append(WordNode("am"))
-word.append(WordNode("hungry"))
-word.append(WordNode("want"))
-word.append(WordNode("food"))
 
-word[0].addNode(word[1])
-word[0].addNode(word[3])
-word[1].addNode(word[2])
 word[3].addNode(word[4])
 
 print(word[1].nextWord())
 
 
-Current=word[1]
+Current=word[0]
 for ii in range(0,3):
     Current.printWord()
     Current = Current.nextWord()
