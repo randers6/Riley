@@ -21,18 +21,22 @@ class WordNode:
 
     def printWord(self):
         print(self.word)
+        
+        
+words2=[]
+words='Python Is an easy to learn powerful programming language It has efficient high-level data structures And a simple but effective approach to Object-oriented programming Python’s elegant syntax And dynamic typing together With its interpreted nature make it an ideal language For scripting And rapid application development In many areas on most platforms'    
+word=words.split()
 
-words=[Python,Is,an,easy,to,learn, powerful, programming, language, It, has, efficient, high-level, data, structures, And, a, simple, but, effective, approach, to, Object-oriented, programming, Python’s, elegant, syntax, And, dynamic, typing, together, With, its, interpreted, nature, make, it, an, ideal, language, For, scripting, And, rapid, application, development, In, many, areas, on, most, platforms]    
-word=[]      
-word.append(WordNode("I")) # this worked before random pick why???something to do with importing random? 
+for iii in range(len(word)):
+     words2.append(WordNode(word[iii]))
+#need t orecognize repeated nodes, this doesnt 
 
-word[3].addNode(word[4])
-
-print(word[1].nextWord())
-
-
-Current=word[0]
-for ii in range(0,3):
+for rr in range(len(words2)-1):
+    words2[rr].addNode(words2[rr+1])
+    
+    
+Current=words2[0]
+for ii in range(0,5):
     Current.printWord()
     Current = Current.nextWord()
 
