@@ -23,20 +23,45 @@ class WordNode:
         print(self.word)
         
         
-words2=[]
-words='Python Is an easy to learn powerful programming language It has efficient high-level data structures And a simple but effective approach to Object-oriented programming Python’s elegant syntax And dynamic typing together With its interpreted nature make it an ideal language For scripting And rapid application development In many areas on most platforms'    
+words2=[]    #rename not word nodes in future 
+words='Hello my name is Riley I like to eat cake My cats names are Gus Mable and Felix I live in Mass This summer I will stay in VA I go to school at UMW I study math and studio art I made stuffed peppers for dinner easter was Sunday'    
 word=words.split()
 
-for iii in range(len(word)):
-     words2.append(WordNode(word[iii]))
-#need t orecognize repeated nodes, this doesnt 
 
-for rr in range(len(words2)-1):
-    words2[rr].addNode(words2[rr+1])
+for iii in range(len(word)):
+    sameword=False
+    
+    for w in words2:
+        
+        if word[iii]==w.word:
+            sameword=True 
+            break
+        
+    if sameword==False:
+        words2.append(WordNode(word[iii]))
+        
+            
+            
+for (ii,w) in enumerate(word[:-1]):
+    current_node=None 
+    for wordnode in words2:
+        if w==wordnode.word:
+            current_node=wordnode
+            break
+        
+    for wordnode in words2:
+        if word[ii+1]==wordnode.word:
+            current_node.addNode(wordnode)
+                    
+                    
+        
+            
+    
+
     
     
-Current=words2[0]
-for ii in range(0,5):
+Current=words2[3]
+for ii in range(0,3):
     Current.printWord()
     Current = Current.nextWord()
 
